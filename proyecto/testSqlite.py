@@ -63,9 +63,48 @@ def main():
  
         print("2. Query all tasks")
         select_all_tasks(conn)
-
+        """
         print("3. insert_task")
         insert_task(conn,(5,'tarea 5','22/10/18'))
+        """
+        op=1
+        while op!=7:
+            print ("1. Que clase quiere")
+            print ("2. Mostrar clases")
+            print ("3. Editar objeto")
+            print ("4. Eliminar objeto")
+            print ("5. Buscar objeto por atributo")
+            print ("6. Agregar objeto")
+            print ("7. Salir")
+            op=input("Que quieres: ")
+            if op==1:
+                select_all_tasks
+            elif op==2:
+                print("entre")
+
+            elif op==3:
+                print("entre")
+
+            elif op==4:
+                print("entre")
+
+            elif op==5:
+                print("entre")
+
+            elif op==6:
+                num=int(input("Id del nuevo objeto"))
+                nombre=input("Ingresa el nombre: ")
+                print type(nombre)
+                fecha=input("INgresa la fecha: ")
+                insert_task(conn,(num,nombre,fecha))
+
+            elif op==7:
+                return
+
+            else:
+                print ("Ingrese una opcion valida")
+
+            pass
  
  
 if __name__ == '__main__':
