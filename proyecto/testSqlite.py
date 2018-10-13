@@ -78,7 +78,7 @@ def main():
             print ("7. Salir")
             op=input("Que quieres: ")
             if op==1:
-                select_all_tasks
+                select_all_tasks(conn)
             elif op==2:
                 print("entre")
 

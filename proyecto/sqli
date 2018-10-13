@@ -1,0 +1,3 @@
+print 'hola mundo'
+cadene=input('Ingresa algo')
+print cadene
