@@ -17,7 +17,7 @@ def create_connection(db_file):
     return None
  
  
-def select_all_tasks(conn):
+def select_ubicacion(conn):
     """
     Query all rows in the tasks table
     :param conn: the Connection object
@@ -30,8 +30,18 @@ def select_all_tasks(conn):
  
     for row in rows:
         print(row)
- 
- 
+
+def at_contacto():
+	print ('ID NOMBRE TELFONO CORREO WEB FACEBOOK TWITTER INSTAGRAM LINKEDIN WHATSAPP')
+
+def select_contacto(conn):
+	at_contacto()
+	cur = conn.cursor()
+	cur.execute("SELECT * FROM contacto  ")
+	rows=cur.fetchall()
+	for row in rows:
+		print(row)
+    
 """def select_task_by_priority(conn, priority):
     
     Query tasks by priority
@@ -49,12 +59,35 @@ def select_all_tasks(conn):
 def mostrar(conn):
 	cur=conn.cursor()
 	cur.execute("SELECT * FROM sqlite_master WHERE type = 'table' ")
+def seleccionar(conn,actual):
+	if actual=="ubicacion":
+		select_ubicacion(conn)
+	elif actual=="contacto":
+		select_contacto(conn)
+	else:
+		print 'NO EXISTE'
 
-def insert_task(conn,tarea):
+def insert_ubicacion(conn,datos):
     cur=conn.cursor()
-    cur.execute("Insert INTO ubicacion values(?,?,?)",tarea)
+    cur.execute("Insert INTO ubicacion values(?,?,?,?,?,?,?,?,?)",datos)
 
- 
+def insert_contacto(conn,datos):
+	cur=conn.cursor()
+	cur.execute("Insert INTO contacto values(?,?,?,?,?,?,?,?,?,?)".datos)
+
+def cambiar(conn,actual):
+	if actual=='ubicacion':
+		emp=raw_input('Ingresa la empresa a modificar')
+       	UPDATE ubicacion
+       	SET raw_input('Atributo a modificar: ')=raw_input('nuevo valor: ')
+       	WHERE nombre=emp
+    elif actual=='contacto':
+    	emp=raw_input('Ingresa la empresa a modificar')
+       	UPDATE contacto
+       	SET raw_input('Atributo a modificar: ')=raw_input('nuevo valor: ')
+       	WHERE nombre=emp
+	pass
+
 def main():
     database = "pythonsqlite.db"
  
@@ -64,29 +97,28 @@ def main():
         #print("1. Query task by priority:")
         #select_task_by_priority(conn,1)
  
-        print("2. Query all tasks")
-        select_all_tasks(conn)
+        #print("2. Query all tasks")
+        #select_all_tasks(conn)
         """
         print("3. insert_task")
         insert_task(conn,(5,'tarea 5','22/10/18'))
         """
         op=1
         while op!=7:
-            print ("1. Que clase quiere")
-            print ("2. Mostrar clases")
-            print ("3. Editar objeto")
-            print ("4. Eliminar objeto")
-            print ("5. Buscar objeto por atributo")
-            print ("6. Agregar objeto")
-            print ("7. Salir")
+            print (" Que clase quiere entrar ")
+            mostrar(conn)
+            actual=raw_input()
+            print ("1. Mostrar datos")
+            print ("2. Editar objeto")
+            print ("3. Eliminar objeto")
+            print ("4. Buscar objeto por atributo")
+            print ("5. Agregar objeto")
+            print ("6. Salir")
             op=input("Que quieres: ")
             if op==1:
-                select_all_tasks(conn)
+                seleccionar(conn,actual)
             elif op==2:
-            	#SELECT *FROM contacto WHERE type = "table";
-            	print ('entre')
-            	mostrar(conn)
-
+            	cambiar(conn. actual)
 
             elif op==3:
                 print("entre")
