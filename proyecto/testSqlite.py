@@ -24,7 +24,7 @@ def select_all_tasks(conn):
     :return:
     """
     cur = conn.cursor()
-    cur.execute("SELECT * FROM tasks")
+    cur.execute("SELECT * FROM ubicacion	")
  
     rows = cur.fetchall()
  
@@ -32,24 +32,27 @@ def select_all_tasks(conn):
         print(row)
  
  
-def select_task_by_priority(conn, priority):
-    """
+"""def select_task_by_priority(conn, priority):
+    
     Query tasks by priority
     :param conn: the Connection object
     :param priority:
     :return:
-    """
+    
     cur = conn.cursor()
-    cur.execute("SELECT * FROM tasks WHERE priority=?", (priority,))
+    cur.execute("SELECT * FROM ubicacion WHERE priority=?", (priority,))
  
     rows = cur.fetchall()
  
     for row in rows:
-        print(row)
+        print(row)"""
+def mostrar(conn):
+	cur=conn.cursor()
+	cur.execute("SELECT * FROM sqlite_master WHERE type = 'table' ")
 
 def insert_task(conn,tarea):
     cur=conn.cursor()
-    cur.execute("Insert INTO tasks values(?,?,?)",tarea)
+    cur.execute("Insert INTO ubicacion values(?,?,?)",tarea)
 
  
 def main():
@@ -58,8 +61,8 @@ def main():
     # create a database connection
     conn = create_connection(database)
     with conn:
-        print("1. Query task by priority:")
-        select_task_by_priority(conn,1)
+        #print("1. Query task by priority:")
+        #select_task_by_priority(conn,1)
  
         print("2. Query all tasks")
         select_all_tasks(conn)
@@ -80,7 +83,10 @@ def main():
             if op==1:
                 select_all_tasks(conn)
             elif op==2:
-                print("entre")
+            	#SELECT *FROM contacto WHERE type = "table";
+            	print ('entre')
+            	mostrar(conn)
+
 
             elif op==3:
                 print("entre")
