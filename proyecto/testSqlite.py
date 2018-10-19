@@ -24,7 +24,49 @@ def show(conn,clase):
 		rows=cur.fetchall()
 		for row in rows:
 			print(row)
-	
+	elif clase=='contacto':
+		at_contacto()
+		cur.execute("SELECT * FROM contacto    ")
+		rows=cur.fetchall()
+		for row in rows:
+			print(row)
+	elif clase=='empresa':
+		at_empresa()
+		cur.execute("SELECT * FROM empresa    ")
+		rows=cur.fetchall()
+		for row in rows:
+			print(row)
+	elif clase=='finanzas':
+		at_finanzas()
+		cur.execute("SELECT * FROM finanzas    ")
+		rows=cur.fetchall()
+		for row in rows:
+			print(row)
+	elif clase=='documentos':
+		at_documentos()
+		cur.execute("SELECT * FROM documentos  ")
+		rows=cur.fetchall()
+		for row in rows:
+			print(row)
+	elif clase=='producto':
+		at_producto()
+		cur.execute("SELECT * FROM producto")
+		rows=cur.fetchall()
+		for row in rows:
+			print(row)
+	elif clase=='provedores':
+		at_provedores()
+		cur.execute("SELECT * FROM provedores")
+		rows=cur.fetchall()
+		for row in rows:
+			print(row)
+	elif clase=='importaciones':
+		at_importaciones()
+		cur.execute("SELECT * FROM importaciones")
+		rows=cur.fetchall()
+		for row in rows:
+			print(row)
+
 	else:
 		print('\nla clase no es valida\n')
  
@@ -45,9 +87,27 @@ def select_ubicacion(conn):
 
 def at_ubicacion():
 	print('ID NOMBRE CALLE NUMERO CP MUNICIPIO CIUDAD LATITUD LONGITUD')
-	pass
+	
 def at_contacto():
 	print ('ID NOMBRE TELFONO CORREO WEB FACEBOOK TWITTER INSTAGRAM LINKEDIN WHATSAPP')
+
+def at_empresa():
+	print('ID NOMBRE RSOCIAL TIPO TAMANO GIRO')
+
+def at_finanzas():
+	print('ID NOMBRE VENTAS GANANCIAS PERDIDAS INVERSIONES IMPUESTOS')
+
+def at_documentos():
+	print('ID NOMBRE CERTIFICACIONES PERMISOS SEGURO')
+
+def at_producto():
+	print ('ID NOMBRE TIPO PRECIO SECTOR DEMANANDA')
+
+def at_provedores():
+	print('ID NOMBRE CANTIDAD MATERIALES PRECIO FRECUENCIA')
+
+def at_importaciones():
+	print('ID NOMBRE ORIGEN DESTINO TRASLADO TIEMPO LOTE')
 
 def select_contacto(conn):
 	at_contacto()
@@ -90,19 +150,6 @@ def insert_contacto(conn,datos):
 	cur=conn.cursor()
 	cur.execute("Insert INTO contacto values(?,?,?,?,?,?,?,?,?,?)".datos)
 
-def meter_ubicacion(conn, data):
-	sql='''UPDATE ubicacion
-		   SET nombre=?,
-		       calle=?,
-		       numero=?,
-		       cp=?,
-		       municipio=?,
-		       ciudad=?,
-		       latitud=?,
-		       longitud=?
-		   WHERE id=?'''
-	cur=conn.cursor()
-	cur.execute(sql,data)
 
 def cambiar(conn,actual):
 	cur=conn.cursor()
@@ -123,13 +170,52 @@ def cambiar(conn,actual):
 		cur.execute("UPDATE 'ubicacion'")
 		cur.execute("SET raw_input('Atributo a modificar:  ')=raw_input('nuevo valor:  ')")
 		cur.execute("WHERE id=emp")"""
-		with conn:
-			meter_ubicacion(conn,(nombre,calle,numero,cp,municipio,ciudad,latitud,longitud,emp))
+		sql='''UPDATE ubicacion
+		   SET nombre=?,
+		       calle=?,
+		       numero=?,
+		       cp=?,
+		       municipio=?,
+		       ciudad=?,
+		       latitud=?,
+		       longitud=?
+		   WHERE id=?'''
+		cur=conn.cursor()
+		cur.execute(sql,(nombre,calle,numero,cp,municipio,ciudad,latitud,longitud,emp))
 
 		show(conn,actual)
 
 	elif actual=='contacto':
-		print('entre')
+
+		show(conn,actual)
+		emp=input('Ingresa ID a modificar')
+		nombre=raw_input('Ingresa nuevo nombre: ')
+		telefono=raw_input('Ingresa nuevo telefono: ')
+		correo =raw_input('Ingresa nuevo correo: ')
+		web =raw_input('Ingresa nuevo web: ')
+		facebook =raw_input('Ingresa nuevo facebook: ')
+		twitter =raw_input('Ingresa nuevo twitter: ')
+		instagram =raw_input('Ingresa nuevo instagram: ')
+		linkedin =raw_input('Ingresa nuevo linkedin: ')
+		whatsapp =raw_input('Ingresa nuevo whatsapp: ')
+
+		sql='''UPDATE ubicacion
+		   SET nombre=?,
+		       telefono=?,
+		       correo=?,
+		       web=?,
+		       facebook=?,
+		       twitter=?,
+		       instagram=?,
+		       linkedin=?,
+		       whatsapp=?
+		   WHERE id=?'''
+		cur=conn.cursor()
+		cur.execute(sql,(nombre,telefono,correo,web,facebook,twitter,instagram,linkedin,whatsapp,emp))
+
+		show(conn,actual)
+
+
 		"""emp=raw_input('Ingresa la empresa a modificar')
     	UPDATE contacto
        	SET raw_input('Atributo a modificar: ')=raw_input('nuevo valor: ')
@@ -173,9 +259,9 @@ def search(conn,actual):
 		nombre=raw_input('Cual deseas buscar?: ')
 		try:
 			sql='''SELECT * FROM ubicacion
-				   WHERE ?=?'''
+				   WHERE nombre=?'''
 
-			cur.execute(sql,(at,nombre))
+			cur.execute(sql,(nombre))
 			print(cur.fetchone())
 		except Exception as e:
 			print ('No existe ese elemento')
@@ -229,7 +315,10 @@ def main():
         	    	
 
         	    elif op==6:
-        	    	print("entre")
+        	    	print ('')
+
+        	    elif op==7:
+        	    	print ('Gracias, vuelva pronto :)')
 
         	    else:
         	    	print("ingrese opcion valida")
