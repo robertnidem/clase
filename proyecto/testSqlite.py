@@ -149,6 +149,37 @@ def delete(conn,actual):
 
 def insert(conn,actual):
 	cur=conn.cursor()
+	if actual=='ubicacion':
+		id=input('Ingresa ID: ')
+		nombre=raw_input('Ingresa nombre: ')
+		calle=raw_input('Ingresa calle: ')
+		numero=raw_input('Ingresa numero: ')
+		cp=raw_input('Ingresa cp: ')
+		municipio=raw_input('Ingresa municipio: ')
+		ciudad=raw_input('Ingresa ciudad: ')
+		latitud=raw_input('Ingresa latitud: ')
+		longitud=raw_input('Ingresa longitud: ')
+
+		sql='''INSERT INTO ubicacion(id,nombre,calle,numero,cp,municipio,ciudad,latitud,longitud)
+			   VALUES (?,?,?,?,?,?,?,?,?)'''
+		cur.execute(sql,(id,nombre,calle,numero,cp,municipio,ciudad,latitud,longitud))
+		return cur.lastrowid
+
+def search(conn,actual):
+	cur=conn.cursor()
+	if actual=='ubicacion':
+		at_ubicacion()
+		at=raw_input('Que atributo quieres buscar: ')
+		nombre=raw_input('Cual deseas buscar?: ')
+		try:
+			sql='''SELECT * FROM ubicacion
+				   WHERE ?=?'''
+
+			cur.execute(sql,(at,nombre))
+			print(cur.fetchone())
+		except Exception as e:
+			print ('No existe ese elemento')
+
 
 def main():
     database = "pythonsqlite.db"
@@ -191,10 +222,11 @@ def main():
         	    	delete(conn,actual)
 
         	    elif op==4:
-        	    	print("entre")
+        	    	search(conn,actual)
 
         	    elif op==5:
-        	    	print("entre")
+        	    	insert(conn,actual)
+        	    	
 
         	    elif op==6:
         	    	print("entre")
