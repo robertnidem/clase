@@ -15,6 +15,18 @@ def create_connection(db_file):
         print(e)
  
     return None
+
+def show(conn,clase):
+	cur=conn.cursor()
+	if clase=='ubicacion':
+		at_ubicacion() 
+		cur.execute("SELECT * FROM ubicacion   ")
+		rows=cur.fetchall()
+		for row in rows:
+			print(row)
+	
+	else:
+		print('\nla clase no es valida\n')
  
  
 def select_ubicacion(conn):
@@ -31,6 +43,9 @@ def select_ubicacion(conn):
     for row in rows:
         print(row)
 
+def at_ubicacion():
+	print('ID NOMBRE CALLE NUMERO CP MUNICIPIO CIUDAD LATITUD LONGITUD')
+	pass
 def at_contacto():
 	print ('ID NOMBRE TELFONO CORREO WEB FACEBOOK TWITTER INSTAGRAM LINKEDIN WHATSAPP')
 
@@ -75,18 +90,65 @@ def insert_contacto(conn,datos):
 	cur=conn.cursor()
 	cur.execute("Insert INTO contacto values(?,?,?,?,?,?,?,?,?,?)".datos)
 
+def meter_ubicacion(conn, data):
+	sql='''UPDATE ubicacion
+		   SET nombre=?,
+		       calle=?,
+		       numero=?,
+		       cp=?,
+		       municipio=?,
+		       ciudad=?,
+		       latitud=?,
+		       longitud=?
+		   WHERE id=?'''
+	cur=conn.cursor()
+	cur.execute(sql,data)
+
 def cambiar(conn,actual):
+	cur=conn.cursor()
 	if actual=='ubicacion':
-		emp=raw_input('Ingresa la empresa a modificar')
-       	UPDATE ubicacion
+		
+		show(conn,actual)
+		emp=raw_input('Ingresa ID  a modificar')
+		nombre=raw_input('Ingresa nuevo nombre: ')
+		calle=raw_input('Ingresa nuevo calle: ')
+		numero=raw_input('Ingresa nuevo numero: ')
+		cp=raw_input('Ingresa nuevo cp: ')
+		municipio=raw_input('Ingresa nuevo municipio: ')
+		ciudad=raw_input('Ingresa nueva ciudad : ')
+		latitud=raw_input('Ingresa nueva latitud : ')
+		longitud=raw_input('Ingresa nueva longitud : ')
+
+		"""
+		cur.execute("UPDATE 'ubicacion'")
+		cur.execute("SET raw_input('Atributo a modificar:  ')=raw_input('nuevo valor:  ')")
+		cur.execute("WHERE id=emp")"""
+		with conn:
+			meter_ubicacion(conn,(nombre,calle,numero,cp,municipio,ciudad,latitud,longitud,emp))
+
+		show(conn,actual)
+
+	elif actual=='contacto':
+		print('entre')
+		"""emp=raw_input('Ingresa la empresa a modificar')
+    	UPDATE contacto
        	SET raw_input('Atributo a modificar: ')=raw_input('nuevo valor: ')
-       	WHERE nombre=emp
-    elif actual=='contacto':
-    	emp=raw_input('Ingresa la empresa a modificar')
-       	UPDATE contacto
-       	SET raw_input('Atributo a modificar: ')=raw_input('nuevo valor: ')
-       	WHERE nombre=emp
-	pass
+       	WHERE nombre=emp"""
+	else:
+		print('La clase no es valida')
+
+def delete(conn,actual):
+	cur=conn.cursor()
+	if actual=='ubicacion':
+		id=input('Ingresa ID de elemento para eliminar')
+		sql='DELETE FROM ubicacion WHERE id=?'
+		cur.execute(sql,(id,))
+
+	else:
+		print ('Ingresa opcion valida')
+
+def insert(conn,actual):
+	cur=conn.cursor()
 
 def main():
     database = "pythonsqlite.db"
@@ -105,45 +167,45 @@ def main():
         """
         op=1
         while op!=7:
-            print (" Que clase quiere entrar ")
+            print (" Que clase quiere entrar: ")
             mostrar(conn)
+            op=1
             actual=raw_input()
-            print ("1. Mostrar datos")
-            print ("2. Editar objeto")
-            print ("3. Eliminar objeto")
-            print ("4. Buscar objeto por atributo")
-            print ("5. Agregar objeto")
-            print ("6. Salir")
-            op=input("Que quieres: ")
-            if op==1:
-                seleccionar(conn,actual)
-            elif op==2:
-            	cambiar(conn. actual)
+            while op!=6 and op!=7 :
+	            print ("1. Mostrar datos")
+	            print ("2. Editar objeto")
+	            print ("3. Eliminar objeto")
+	            print ("4. Buscar objeto por atributo")
+	            print ("5. Agregar objeto")
+	            print ("6. Cambiar clase")
+	            print ("7. Salir del programa")
+        	    op=input("Que quieres: ")
+        	    if op==1:
+        	    	show(conn,actual)
+        	    	
 
-            elif op==3:
-                print("entre")
+        	    elif op==2:
+        	    	cambiar(conn,actual)
 
-            elif op==4:
-                print("entre")
+        	    elif op==3:
+        	    	delete(conn,actual)
 
-            elif op==5:
-                print("entre")
+        	    elif op==4:
+        	    	print("entre")
 
-            elif op==6:
-                num=int(input("Id del nuevo objeto"))
-                nombre=input("Ingresa el nombre: ")
-                print type(nombre)
-                fecha=input("INgresa la fecha: ")
-                insert_task(conn,(num,nombre,fecha))
+        	    elif op==5:
+        	    	print("entre")
 
-            elif op==7:
-                return
+        	    elif op==6:
+        	    	print("entre")
 
-            else:
-                print ("Ingrese una opcion valida")
+        	    else:
+        	    	print("ingrese opcion valida")
 
-            pass
- 
+
+
+            
+					
  
 if __name__ == '__main__':
     main()
