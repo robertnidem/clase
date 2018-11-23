@@ -1,17 +1,22 @@
 def llenar(n):
 	for i in range(0,n+1):
 		r.append(0)
+	return r
 
 
-def sumar(n):
-	for i in range(n,-2,-1):
-		r[i]=r[i]+a[i]+b[i]
+def sumar(a,b,r,n):
+	for i in range(n,0,-1):
+		r[i]=r[i]+a[i-1]+b[i-1]
+
 		if r[i]>=10:
 			r[i]=r[i]-10
 			r[i-1]=1
+		
+
+	print r
 
 
-	pass
+
 
 
 a=[5,6,3]
@@ -20,13 +25,14 @@ n=len(a)
 m=len(b)
 r=[]
 if n>m:
+	r=llenar(n)
+	sumar(a,b,r,n)
 
-	print 1
 
 elif n<m:
-	print 2
+	r=llenar(m)
+	sumar(a,b,r,m)
 
 else: 
-	print 3
-	print n
-	llenar(n)
+	r=llenar(n)
+	sumar(a,b,r,n)
