@@ -26,11 +26,15 @@ func rowTheBoat() {
  What happens if you call your function more than once?
 
 */
+func repeticion()
+{
+    print("La fuerza esta conmigox")
+    print("Soy uno con la fuerza")
+}
 
 
 
-
-
+repeticion()
 
 
 //: Next, learn about how to think about tasks and divide them up in a way that makes sense.
