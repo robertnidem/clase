@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="eJD-Oe-p2C">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Principal-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Nidem" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Arturo Estudiante Facultad de Ingenieria Musico Arquero " textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="rXg-gj-7uF">
+                                <rect key="frame" x="43" y="198" width="290" height="342"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.58072251080000004" green="0.066734083" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Principal" id="6kg-L1-cWh"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="860" y="132.68365817091455"/>
+        </scene>
+        <!--Deportes-->
+        <scene sceneID="MYz-bf-tWp">
+            <objects>
+                <viewController id="cl8-yd-18q" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="QpD-43-Okl">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.0048598507420000003" green="0.096086271109999996" blue="0.57499289509999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="v7l-ht-Rvi"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Deportes" id="liU-7G-tEO"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6gj-L9-LTe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1604" y="132.68365817091455"/>
+        </scene>
+        <!--Musica-->
+        <scene sceneID="A61-NT-uXC">
+            <objects>
+                <viewController id="ENO-z4-zWk" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="2jX-Hi-9MZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="nbe-Lj-Y1v">
+                                <rect key="frame" x="0.0" y="20" width="375" height="598"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="xbK-lB-g9D">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="99.5"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PGs-jj-Xyd">
+                                                <rect key="frame" x="0.0" y="0.0" width="94" height="99.5"/>
+                                            </imageView>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Legado de una tragedia IV El secreto de los  templarios" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="sZ0-Il-LOB">
+                                                <rect key="frame" x="94" y="0.0" width="281" height="99.5"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="sZ0-Il-LOB" firstAttribute="width" relation="greaterThanOrEqual" secondItem="PGs-jj-Xyd" secondAttribute="width" multiplier="3" id="Mbp-qp-uYf"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="au3-Jt-I3p">
+                                        <rect key="frame" x="0.0" y="99.5" width="375" height="100"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cjH-rl-yKa">
+                                                <rect key="frame" x="0.0" y="0.0" width="94" height="100"/>
+                                            </imageView>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Stravaganzza Sentimientos" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="ACa-ST-VLS">
+                                                <rect key="frame" x="94" y="0.0" width="281" height="100"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="ACa-ST-VLS" firstAttribute="width" relation="greaterThanOrEqual" secondItem="cjH-rl-yKa" secondAttribute="width" multiplier="3" id="8Go-Hw-B1L"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="lmc-UH-3Vj">
+                                        <rect key="frame" x="0.0" y="199.5" width="375" height="99.5"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aoM-01-mFX">
+                                                <rect key="frame" x="0.0" y="0.0" width="94" height="99.5"/>
+                                            </imageView>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Mago de Oz Gaia 2 la voz dormida" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="rT5-vA-6xU">
+                                                <rect key="frame" x="94" y="0.0" width="281" height="99.5"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="rT5-vA-6xU" firstAttribute="width" relation="greaterThanOrEqual" secondItem="aoM-01-mFX" secondAttribute="width" multiplier="3" id="gr1-qS-gci"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="yG3-Bh-zD5">
+                                        <rect key="frame" x="0.0" y="299" width="375" height="99.5"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8ZM-we-myW">
+                                                <rect key="frame" x="0.0" y="0.0" width="94" height="99.5"/>
+                                            </imageView>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Legado de una tragedia 2" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="S8V-NW-Zyp">
+                                                <rect key="frame" x="94" y="0.0" width="281" height="99.5"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="S8V-NW-Zyp" firstAttribute="width" relation="greaterThanOrEqual" secondItem="8ZM-we-myW" secondAttribute="width" multiplier="3" id="Cdf-Xb-LM1"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="BdD-m3-5GB">
+                                        <rect key="frame" x="0.0" y="398.5" width="375" height="100"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="CDy-jZ-WGF">
+                                                <rect key="frame" x="0.0" y="0.0" width="94" height="100"/>
+                                            </imageView>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Eluveitie  Ategnatos" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="cZx-qE-Fw2">
+                                                <rect key="frame" x="94" y="0.0" width="281" height="100"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="cZx-qE-Fw2" firstAttribute="width" relation="greaterThanOrEqual" secondItem="CDy-jZ-WGF" secondAttribute="width" multiplier="3" id="glt-pW-ioJ"/>
+                                        </constraints>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="1EV-8Z-RtY">
+                                        <rect key="frame" x="0.0" y="498.5" width="375" height="99.5"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WuS-qg-pqW">
+                                                <rect key="frame" x="0.0" y="0.0" width="94" height="99.5"/>
+                                            </imageView>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Debler Somnia" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="VGs-08-J1l">
+                                                <rect key="frame" x="94" y="0.0" width="281" height="99.5"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="VGs-08-J1l" firstAttribute="width" relation="greaterThanOrEqual" secondItem="WuS-qg-pqW" secondAttribute="width" multiplier="3" id="U6I-FL-dUg"/>
+                                        </constraints>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.37055522200000002" green="0.37056469920000001" blue="0.37055957319999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="nbe-Lj-Y1v" firstAttribute="top" secondItem="ddc-vN-kRZ" secondAttribute="top" id="R7B-Td-rnf"/>
+                            <constraint firstItem="nbe-Lj-Y1v" firstAttribute="leading" secondItem="ddc-vN-kRZ" secondAttribute="leading" id="XOR-dp-0g6"/>
+                            <constraint firstItem="ddc-vN-kRZ" firstAttribute="trailing" secondItem="nbe-Lj-Y1v" secondAttribute="trailing" id="ZDx-sU-D5d"/>
+                            <constraint firstItem="ddc-vN-kRZ" firstAttribute="bottom" secondItem="nbe-Lj-Y1v" secondAttribute="bottom" id="aKt-UM-BuF"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ddc-vN-kRZ"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Musica" id="LcI-Ni-lzq"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8xN-Ul-0Gw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2352.8000000000002" y="132.68365817091455"/>
+        </scene>
+        <!--Item-->
+        <scene sceneID="xYf-r3-KwC">
+            <objects>
+                <viewController id="vzI-q4-kvT" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pCT-DI-YTB">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.57874745130000005" green="0.32151988149999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <viewLayoutGuide key="safeArea" id="5k9-8O-aVV"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="Hca-X4-ul4"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KKg-hj-h0g" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3152.8000000000002" y="132.68365817091455"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="bOs-6w-6xW">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="eJD-Oe-p2C" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="60d-JL-hrR">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="zG3-Cu-9kH"/>
+                        <segue destination="cl8-yd-18q" kind="relationship" relationship="viewControllers" id="8fd-lL-NEe"/>
+                        <segue destination="ENO-z4-zWk" kind="relationship" relationship="viewControllers" id="bty-m1-u7E"/>
+                        <segue destination="vzI-q4-kvT" kind="relationship" relationship="viewControllers" id="Usl-uo-1Ef"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7BQ-ie-h9s" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1991" y="-734"/>
+        </scene>
+    </scenes>
+</document>
