@@ -1,25 +1,36 @@
 //
-//  EmojiTableViewController.swift
-//  Tabla
+//  CollorTableViewController.swift
+//  colores
 //
-//  Created by macbook on 5/6/19.
+//  Created by macbook on 5/8/19.
 //  Copyright © 2019 nidem. All rights reserved.
 //
 
 import UIKit
 
-class EmojiTableViewController: UITableViewController {
+class CollorTableViewController: UITableViewController {
     
-    var emojis:[Emoji] = [
-        Emoji (symbol: "😀", name: "GrinningFace", description: "A typical smiley face", usage: "happines"),
-        Emoji (symbol: "😕", name: "Confused face", description: "A confused puzzled face", usage: "unsure what to think"),
-        Emoji (symbol: "😍", name: "Heart eyes", description: "A smiley face with hearts for eyes", usage: "love of something; atractive"),
-        Emoji (symbol: "👮‍♂️", name: "Police Oficer", description: "A friendily cop", usage: "serving")
-    
+    let coloresPrimarios: [Color] = [
+        Color(Nombre: "Azul", Composicion: nil),
+        Color(Nombre: "Amarillo",Composicion: nil),
+        Color(Nombre: "Rojo", Composicion: nil)
     
     
     ]
     
+    let coloresSecundarios: [Color] = [
+    Color(Nombre: "Morado", Composicion: ["Rojo","Azul"]),
+    Color(Nombre: "Naranja", Composicion: ["Rojo","Amarillo"]),
+    Color(Nombre: "Verde", Composicion: ["Azul","Amarillo"])
+    
+    ]
+    
+    let coloresTerciarios: [Color] = [
+        Color(Nombre: "Azul Turquesa", Composicion: ["Azul","Verde"])
+    
+    ]
+    
+    let secciones = ["Primarios", "Secundarios", "Terciarios"]
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,38 +46,52 @@ class EmojiTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 1
+        return secciones.count
+    }
+    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return secciones[section]
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        if section == 0
-        {
-            return emojis.count;
-            
-        }else
-        {
+        if section == 0{
+            return coloresPrimarios.count
+        }else if section == 1{
+            return coloresSecundarios.count
+        }else if section == 2{
+            return coloresTerciarios.count
+        }else{
             return 0
         }
     }
 
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "celda", for: indexPath)
+        //let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
 
-        // Configure the cell...
-        let emoji = emojis[indexPath.row]
-        cell.textLabel?.text = "\(emoji.symbol) - \(emoji.name)"
-        cell.detailTextLabel?.text = emoji.description
+        if indexPath.section == 0{
+            let colorPrimario = coloresPrimarios[indexPath.row]
+            let cellPrimarios = tableView.dequeueReusableCell(withIdentifier: "ColorPrimarioCell", for: indexPath)
+             cellPrimarios.textLabel?.text = colorPrimario.Nombre
+            return cellPrimarios
+        }
+        let cellOthers = tableView.dequeueReusableCell(withIdentifier: "OtrosColoresCell", for: indexPath)
         
+        if indexPath.section == 1{
+            let colorSecundario = coloresSecundarios[indexPath.row]
+            cellOthers.textLabel?.text=colorSecundario.Nombre
+            cellOthers.textLabel?.text?.removeAll()
+            colorSecundario.Composicion?.forEach(<#T##body: (String) throws -> Void##(String) throws -> Void#>)
+        }
+        if indexPath.section == 2{
+            let colorTerciario = coloresTerciarios[indexPath.row]
+            cellOthers.textLabel?.text=colorTerciario.Nombre
+            cellOthers.textLabel?.text?.removeAll()
+            colorTerciario.Composicion?.forEach(<#T##body: (String) throws -> Void##(String) throws -> Void#>)
+        }
+
         return cell
     }
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-        let movedEmoji = emojis.remove(at: fromIndexPath.row)
-        emojis.insert(movedEmoji, at: to.row)
-        tableView.reloadData()
-        
-        
-    }
+    
 
     /*
     // Override to support conditional editing of the table view.
